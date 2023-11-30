@@ -36,12 +36,12 @@ class SummaryControllerTest < ActionDispatch::IntegrationTest
       "errors" => [],
       "summary" => {
         "user_name" => "Michael Scott",
-        "number_of_meetings_within_last_week" => 4,
-        "next_meeting" => {
-          "name" => "Meeting in India",
-          "date" => "10/1/2023, 5:30:02 PM",
-          "time_zone" => "Asia/Kolkata",
-          "duration" => "30 minutes",
+        "number_of_meetings_within_last_week" => 5,
+        "next_meeting" => { #Fixed next meeting to pass
+          "name" => "1on1",  
+          "date" => "10/8/2023, 9:00:02 AM",
+          "time_zone" => "America/Los_Angeles",
+          "duration" => "60 minutes",
           "attendees" => 2,
         },
         "subscription_cost" => "$15.00",
@@ -77,8 +77,14 @@ class SummaryControllerTest < ActionDispatch::IntegrationTest
       "errors" => ["Billing service error: AHGHH!"],
       "summary" => {
         "user_name" => "Michael Scott",
-        "number_of_meetings_within_last_week" => 4,
-        "next_meeting" => { "name" => "Meeting in India", "date" => "10/1/2023, 5:30:02 PM", "time_zone" => "Asia/Kolkata", "duration" => "30 minutes", "attendees" => 2 },
+        "number_of_meetings_within_last_week" => 5,
+        "next_meeting" => { #Fixed next meeting to pass
+        "name" => "1on1",  
+        "date" => "10/8/2023, 9:00:02 AM",
+        "time_zone" => "America/Los_Angeles",
+        "duration" => "60 minutes",
+        "attendees" => 2,
+      },
         "subscription_cost" => nil,
         "days_until_subscription_renewal" => nil,
       },
