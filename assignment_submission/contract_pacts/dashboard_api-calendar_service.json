@@ -7,17 +7,17 @@
   },
   "interactions": [
     {
-      "description": "a request for an calendar event",
-      "providerState": "an calendar event exists",
+      "description": "A request for an calendar event",
+      "providerState": "Calendar event/s exist for user ID",
       "request": {
         "method": "get",
-        "path": "/event",
+        "path": "/events",
         "query": "user_id=1"
       },
       "response": {
         "status": 200,
         "headers": {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json; charset=utf-8"
         },
         "body": {
           "events": [
@@ -25,15 +25,15 @@
               "id": 1,
               "name": "Hangout",
               "duration": 30,
-              "date": "11/28/2023, 9:00:03 PM",
+              "date": "11/28/2023, 11:00:11 AM",
               "attendees": 2,
               "timeZone": "America/New_York"
             },
             {
               "id": 2,
-              "name": "Pre-Screenz",
+              "name": "Pre-Screen",
               "duration": 60,
-              "date": "11/26/2023, 2:00:03 AM",
+              "date": "11/28/2023, 11:00:11 AM",
               "attendees": 3,
               "timeZone": "America/Chicago"
             },
@@ -41,7 +41,7 @@
               "id": 3,
               "name": "Group Interview",
               "duration": 120,
-              "date": "11/27/2023, 4:00:03 AM",
+              "date": "11/28/2023, 11:00:11 AM",
               "attendees": 3,
               "timeZone": "America/Denver"
             },
@@ -49,12 +49,42 @@
               "id": 4,
               "name": "1on1",
               "duration": 60,
-              "date": "12/5/2023, 12:00:03 PM",
+              "date": "11/28/2023, 11:00:11 AM",
               "attendees": 2,
               "timeZone": "America/Los_Angeles"
             }
           ]
+        },
+        "matchingRules": {
+          "$.body.events[0].date": {
+            "match": "type"
+          },
+          "$.body.events[1].date": {
+            "match": "type"
+          },
+          "$.body.events[2].date": {
+            "match": "type"
+          },
+          "$.body.events[3].date": {
+            "match": "type"
+          }
         }
+      }
+    },
+    {
+      "description": "A request for an calendar event",
+      "providerState": "Calendar event/s do not exist for user ID",
+      "request": {
+        "method": "get",
+        "path": "/events",
+        "query": "invalid_user_id_params=0"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8"
+        },
+        "body": "User Does Not Exist"
       }
     }
   ],

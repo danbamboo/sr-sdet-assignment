@@ -17,6 +17,7 @@ class BillingServiceClientTestPact < Minitest::Test
     end
   end
 
+  #Consumer-Driven-Pact to validate a successful call to get billing subscription (/subscriptions?user_id=1)
   def test_successful_pact_get_events
     @success_response_body = "{\"user_id\": 1, \"renewal_date\": \"11/03/2023\", \"price_cents\": 1500}"
     @parsed_success_response = JSON.parse(@success_response_body)
@@ -33,8 +34,9 @@ class BillingServiceClientTestPact < Minitest::Test
     assert  BillingServiceClient.new().get_billing_subscriptions_success
   end
 
+  #Consumer-Driven-Pact to validate a error call to get billing subscription (/subscriptions?user_id=0) 
   def test_error_pact_get_events
-    @failure_response_body = "{\"message\": \"No subscription found for user_id [1]\"}"
+    @failure_response_body = "{\"message\": \"No subscription found for user_id [0]\"}"
     @parsed_failure_response = JSON.parse(@failure_response_body)
 
     billing_service_pact

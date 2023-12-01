@@ -2,6 +2,7 @@ import express from "express";
 
 const app = express();
 const port = process.env.PORT || 8000;
+const testPort = process.env.TESTPORT || 8099;
 
 function randomHour() {
   const hour =  Math.floor(Math.random() * 24) + 1;
