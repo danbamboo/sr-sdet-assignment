@@ -1,15 +1,9 @@
 Pact.provider_states_for 'dashboard_api' do
 
-  #Currently not required with service running - Could add additional cases for various 
+  #Currently no updates to the 2 required "states" for contracts to pass.
   
     provider_state "User subscriptions exist for user ID" do
-      set_up do
-        #Any setup steps
-      end
-  
-      tear_down do
-        # Any tear down steps to clean up the provider state
-      end
+      #No setup required due to hardcoded data
     end
   
     provider_state "User subscriptions do not exist for user ID" do
