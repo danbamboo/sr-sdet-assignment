@@ -1,2 +1,4 @@
 node_modules
 */myenv/
+*/log/pact.log
+*.DS_Store
