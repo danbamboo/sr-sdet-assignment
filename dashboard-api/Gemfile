@@ -47,3 +47,11 @@ group :development do
   # gem "spring"
 end
 
+
+gem "pact", "~> 1.63"
+
+gem "pact-consumer-minitest", "~> 1.0"
+
+gem "httpparty", "~> 0.2.0"
+
+gem "httpclient", "~> 2.8"
