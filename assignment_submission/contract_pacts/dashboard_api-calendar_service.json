@@ -1,0 +1,66 @@
+{
+  "consumer": {
+    "name": "dashboard_api"
+  },
+  "provider": {
+    "name": "calendar_service"
+  },
+  "interactions": [
+    {
+      "description": "a request for an calendar event",
+      "providerState": "an calendar event exists",
+      "request": {
+        "method": "get",
+        "path": "/event",
+        "query": "user_id=1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "events": [
+            {
+              "id": 1,
+              "name": "Hangout",
+              "duration": 30,
+              "date": "11/28/2023, 9:00:03 PM",
+              "attendees": 2,
+              "timeZone": "America/New_York"
+            },
+            {
+              "id": 2,
+              "name": "Pre-Screenz",
+              "duration": 60,
+              "date": "11/26/2023, 2:00:03 AM",
+              "attendees": 3,
+              "timeZone": "America/Chicago"
+            },
+            {
+              "id": 3,
+              "name": "Group Interview",
+              "duration": 120,
+              "date": "11/27/2023, 4:00:03 AM",
+              "attendees": 3,
+              "timeZone": "America/Denver"
+            },
+            {
+              "id": 4,
+              "name": "1on1",
+              "duration": 60,
+              "date": "12/5/2023, 12:00:03 PM",
+              "attendees": 2,
+              "timeZone": "America/Los_Angeles"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
