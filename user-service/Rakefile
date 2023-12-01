@@ -5,3 +5,4 @@ require_relative "config/application"
 require 'pact/tasks'
 
 Rails.application.load_tasks
+task :default => 'pact:verify'
