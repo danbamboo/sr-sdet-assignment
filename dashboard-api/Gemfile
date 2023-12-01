@@ -55,3 +55,5 @@ gem "pact-consumer-minitest", "~> 1.0"
 gem "httpparty", "~> 0.2.0"
 
 gem "httpclient", "~> 2.8"
+
+gem "rspec-core", "~> 3.12"

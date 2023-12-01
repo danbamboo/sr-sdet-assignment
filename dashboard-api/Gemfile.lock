@@ -239,6 +239,7 @@ DEPENDENCIES
   pact-consumer-minitest (~> 1.0)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
+  rspec-core (~> 3.12)
   sqlite3 (~> 1.4)
   tzinfo-data
 
