@@ -8,6 +8,22 @@
   "interactions": [
     {
       "description": "A request for an calendar event",
+      "providerState": "Calendar event/s do not exist for user ID",
+      "request": {
+        "method": "get",
+        "path": "/events",
+        "query": "invalid_user_id_params=0"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8"
+        },
+        "body": "User Does Not Exist"
+      }
+    },
+    {
+      "description": "A request for an calendar event",
       "providerState": "Calendar event/s exist for user ID",
       "request": {
         "method": "get",
@@ -69,22 +85,6 @@
             "match": "type"
           }
         }
-      }
-    },
-    {
-      "description": "A request for an calendar event",
-      "providerState": "Calendar event/s do not exist for user ID",
-      "request": {
-        "method": "get",
-        "path": "/events",
-        "query": "invalid_user_id_params=0"
-      },
-      "response": {
-        "status": 404,
-        "headers": {
-          "Content-Type": "text/html; charset=utf-8"
-        },
-        "body": "User Does Not Exist"
       }
     }
   ],

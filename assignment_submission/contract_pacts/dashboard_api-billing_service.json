@@ -8,6 +8,24 @@
   "interactions": [
     {
       "description": "A request for an billing subscription",
+      "providerState": "Billing subscriptions do not exist for user ID",
+      "request": {
+        "method": "get",
+        "path": "/subscriptions",
+        "query": "user_id=0"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "message": "No subscription found for user_id [0]"
+        }
+      }
+    },
+    {
+      "description": "A request for an billing subscription",
       "providerState": "Billing subscriptions exist for user ID",
       "request": {
         "method": "get",
@@ -23,24 +41,11 @@
           "user_id": 1,
           "renewal_date": "11/03/2023",
           "price_cents": 1500
-        }
-      }
-    },
-    {
-      "description": "A request for an billing subscription",
-      "providerState": "Billing subscriptions do not exist for user ID",
-      "request": {
-        "method": "get",
-        "path": "/subscriptions",
-        "query": "user_id=0"
-      },
-      "response": {
-        "status": 404,
-        "headers": {
-          "Content-Type": "application/json"
         },
-        "body": {
-          "message": "No subscription found for user_id [0]"
+        "matchingRules": {
+          "$.body.renewal_date": {
+            "match": "type"
+          }
         }
       }
     }
