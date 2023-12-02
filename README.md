@@ -30,4 +30,7 @@ Access the "Summary Dashboard" by visiting this URL in a browser:
 
 # Final Submission
 
-Create a PR in a forked repository and fill out the description with an overview of your changes. Email a link to the PR to your recruiter.
+## Danny McMurrough Submission !!
+Check out [assignment_submission](assignment_submission/README.md) for my submission!
+
+<!-- Create a PR in a forked repository and fill out the description with an overview of your changes. Email a link to the PR to your recruiter. -->
