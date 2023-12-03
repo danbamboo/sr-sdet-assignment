@@ -44,8 +44,8 @@ term-api: build
 
 ##### Client Tests 
 #Create Client Contract on Dashboard API (contracts generated in /contract_pacts) by running tests for all three services in dashboard-api
-.PHONY: contract-client
-contract-client: contract-billing contract-users contract-calendar
+.PHONY: client-tests
+client-tests: contract-billing contract-users contract-calendar
 
 .PHONY: contract-billing
 contract-billing: 

@@ -19,7 +19,8 @@ class UserServiceClientTestPact < Minitest::Test
 
   #Consumer-Driven-Pact to validate a successful call to get user (/user/1)
   def test_successful_pact_get_events
-    @success_response_body = "{\"id\":1,\"first_name\":\"Michael\",\"last_name\":\"Scott\"}"
+    puts "Running `User subscriptions exist for user ID` Contract Test"
+      @success_response_body = "{\"id\":1,\"first_name\":\"Michael\",\"last_name\":\"Scott\"}"
     @parsed_success_response = JSON.parse(@success_response_body)
 
     user_service_pact
@@ -36,6 +37,7 @@ class UserServiceClientTestPact < Minitest::Test
 
   #Consumer-Driven-Pact to validate a error call to get user (/user/0) 
   def test_error_pact_get_events
+    puts "Running `User subscriptions do not exist for user ID` Contract Test"
     @failure_response_body = "{\"message\":\"User not found\"}"
     @parsed_failure_response = JSON.parse(@failure_response_body)
 

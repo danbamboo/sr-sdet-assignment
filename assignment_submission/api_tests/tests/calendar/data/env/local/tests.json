@@ -23,19 +23,19 @@
     },
     {
     "test_description": "Unhappy missing user_id param for /events?invalid_param=1",
-    "uri": "/ events?invalid_param=1",
+    "uri": "/events?invalid_param=1",
     "expected_status": 404,
     "invalid_test": true,
-    "expected_response": "{\"events\":[{\"id\":1,\"name\":\"Hangout\",\"duration\":30,\"date\":\"11\/29\/2023, 6:00:58 AM\",\"attendees\":2,\"timeZone\":\"America\/New_York\"},{\"id\":2,\"name\":\"Pre-Screen\",\"duration\":60,\"date\":\"11\/27\/2023, 5:00:58 PM\",\"attendees\":3,\"timeZone\":\"America\/Chicago\"},{\"id\":3,\"name\":\"Group Interview\",\"duration\":120,\"date\":\"11\/28\/2023, 3:00:58 AM\",\"attendees\":3,\"timeZone\":\"America\/Denver\"},{\"id\":4,\"name\":\"1on1\",\"duration\":60,\"date\":\"12\/6\/2023, 2:00:58 AM\",\"attendees\":2,\"timeZone\":\"America\/Los_Angeles\"}]}",
-    "expected_content_header": "text/html"
+    "expected_response": "Not currently validating until further questions -  HTML string instead of JSON expected",
+    "expected_content_header": "text/html; charset=utf-8"
     },
     {
     "test_description": "Unhappy bad path bad path but has user_id /events/someotherpath?user_id=oddPath",
-    "uri": "/ events?invalid_param=1",
+    "uri": "/events/someotherpath?invalid_param=1",
     "expected_status": 404,
     "invalid_test": true,
-    "expected_response": "{\"events\":[{\"id\":1,\"name\":\"Hangout\",\"duration\":30,\"date\":\"11\/29\/2023, 6:00:58 AM\",\"attendees\":2,\"timeZone\":\"America\/New_York\"},{\"id\":2,\"name\":\"Pre-Screen\",\"duration\":60,\"date\":\"11\/27\/2023, 5:00:58 PM\",\"attendees\":3,\"timeZone\":\"America\/Chicago\"},{\"id\":3,\"name\":\"Group Interview\",\"duration\":120,\"date\":\"11\/28\/2023, 3:00:58 AM\",\"attendees\":3,\"timeZone\":\"America\/Denver\"},{\"id\":4,\"name\":\"1on1\",\"duration\":60,\"date\":\"12\/6\/2023, 2:00:58 AM\",\"attendees\":2,\"timeZone\":\"America\/Los_Angeles\"}]}",
-    "expected_content_header": "text/html"
+    "expected_response": "Not currently validating until further questions -  HTML string instead of JSON expected",
+    "expected_content_header": "text/html; charset=utf-8"
     }
     ]
 }

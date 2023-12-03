@@ -20,6 +20,7 @@ class PactTest < Minitest::Test
   #Consumer-Driven-Pact to validate a successful call to get event (/event?user_id=1)
   def test_successful_pact_get_events
 
+    puts "Running `Calendar event/s exist for user ID` Contract Test"
     #Expected response - uses 'Pact.like' on date fields to match format not exact since dates returned are random.
     @parsed_success_response = {events: [
     {
@@ -71,6 +72,7 @@ class PactTest < Minitest::Test
   #Consumer-Driven-Pact to validate a error call to get event (/event?invalid_user_id_params=0) 
   #NOTE: Updated to match current behavior of Calendar service, does not match specification from assignment.  Only updated to create "passing" contract for demonstration purposes.
   def test_error_pact_get_events
+    puts "Running `Calendar event/s do not exist for user ID` Contract Test"
     @failure_response_body = "User Does Not Exist"
 
     calendar_service_pact
