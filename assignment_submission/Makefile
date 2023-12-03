@@ -41,3 +41,36 @@ term-api: build
 #######################
 ##  CONTRACT TESTING ##
 #######################
+
+##### Client Tests 
+#Create Client Contract on Dashboard API (contracts generated in /contract_pacts) by running tests for all three services in dashboard-api
+.PHONY: contract-client
+contract-client: contract-billing contract-users contract-calendar
+
+.PHONY: contract-billing
+contract-billing: 
+	(cd ../dashboard-api/ && ruby -I test test/contract-testing/billing/billing_service_client_test.rb)
+
+.PHONY: contract-users
+contract-users: 
+	(cd ../dashboard-api/ && ruby -I test test/contract-testing/user/user_service_client_test.rb)
+
+.PHONY: contract-calendar
+contract-calendar: 
+	(cd ../dashboard-api/ && ruby -I test test/contract-testing/calendar/calendar_service_client_test.rb)
+
+##### Provider Tests 
+.PHONY: provider-tests
+provider-tests: billing-provider user-provider calendar-provider
+
+.PHONY: billing-provider
+billing-provider: 
+	(python3 ../billing-service/test/contract/provider-contract.py)
+
+.PHONY: user-provider
+user-provider: 
+	(cd ../user-service && rake)
+
+.PHONY: calendar-provider
+calendar-provider: 
+	(cd ../calendar-service && npm test )
