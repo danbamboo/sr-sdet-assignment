@@ -16,7 +16,7 @@ My comprehensive testing strategy can be reviewed here [comprehensive_test_strat
 For API and Contract testing details and guide for running see the [API and Contract Testing Guide](API_and_Contract_Testing_Guide.md) 
 
 # Part 3: CI/CD Pipeline Integration
-
+Here I discuss CICD integrations plans for API and Contract testing [CI/CD Pipeline Integration](CICD_Pipeline_Integration.md) 
 
 # Part 4: Test Data Management and Mocking
 
