@@ -1,0 +1,63 @@
+{
+    "tests": [
+    {
+    "test_description": "Happy path for /subscriptions?user_id=1",
+    "uri": "/subscriptions?user_id=1",
+    "expected_status": 200,
+    "expected_response": "{\"user_id\": 1, \"renewal_date\": \"01\/01\/2024\", \"price_cents\": 1500}",
+    "expected_content_header": "application/json"
+    },
+    {
+    "test_description": "Happy path for /subscriptions?user_id=2",
+    "uri": "/subscriptions?user_id=2",
+    "expected_status": 200,
+    "expected_response": "{\"user_id\": 2, \"renewal_date\": \"01\/31\/2024\", \"price_cents\": 3000}",
+    "expected_content_header": "application/json"
+    },
+    {
+    "test_description": "Happy path for /subscriptions?user_id=3",
+    "uri": "/subscriptions?user_id=3",
+    "expected_status": 200,
+    "expected_response": "{\"user_id\": 3, \"renewal_date\": \"03\/01\/2024\", \"price_cents\": 14500}",
+    "expected_content_header": "application/json"
+    },
+    {
+    "test_description": "Happy path for /subscriptions?user_id=4",
+    "uri": "/subscriptions?user_id=4",
+    "expected_status": 200,
+    "expected_response": "{\"user_id\": 4, \"renewal_date\": \"03\/31\/2024\", \"price_cents\": 16000}",
+    "expected_content_header": "application/json"
+    },
+    {
+    "test_description": "Happy path for /subscriptions?user_id=5",
+    "uri": "/subscriptions?user_id=5",
+    "expected_status": 200,
+    "expected_response": "{\"user_id\": 5, \"renewal_date\": \"04\/30\/2024\", \"price_cents\": 17500}",
+    "expected_content_header": "application/json"
+    },
+    {
+    "test_description": "Unhappy path since user 6 does not exist /subscriptions?user_id=6",
+    "uri": "/subscriptions?user_id=6",
+    "non200": true,
+    "expected_status": 404,
+    "expected_response": "{\"message\": \"No subscription found for user_id [6]\"}",
+    "expected_content_header": "application/json"
+    },
+    {
+    "test_description": "Unhappy path since user_id param is not provided /subscriptions?invalid_param=6",
+    "uri": "/subscriptions?invalid_param=6",
+    "non200": true,
+    "expected_status": 500,
+    "expected_response": "{\"title\": \"500 Internal Server Error\"}",
+    "expected_content_header": "application/json"
+    },
+    {
+    "test_description": "Unhappy path since user_id=a param is not integer /subscriptions?invalid_param=a",
+    "uri": "/subscriptions?invalid_param=a",
+    "non200": true,
+    "expected_status": 500,
+    "expected_response": "{\"title\": \"500 Internal Server Error\"}",
+    "expected_content_header": "application/json"
+    }
+    ]
+}

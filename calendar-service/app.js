@@ -71,6 +71,10 @@ app.get("/events", (req, res) => {
   })
 });
 
-app.listen(port, () => {
+//Export server so provider test can stop gracefully
+let server = app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
+
+export default server;
+
