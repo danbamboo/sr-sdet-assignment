@@ -1,7 +1,8 @@
 import pytest
 import requests
-from lib.utils import get_JSON_file 
+from lib.utils import get_JSON_file, validate_date_format
 import os
+import json
 
 
 @pytest.fixture(scope="module", autouse=True)
@@ -28,6 +29,29 @@ def test_all_billing(test):
     print(test["test_description"])
     response = requests.get("{}{}".format(baseURL, test["uri"]))
     assert response.status_code == test["expected_status"]
-    if "skip_response_validation" not in test:  #For some cases we skip response validation due to very long/irrelevant json output
+    
+    if "non200" not in test:  #For expected 200 calls, we custom validate the json response; otherwise direct compare of jsonx
+        custom_validate_billing_responses(response.text, test["expected_response"])
+    else:
         assert response.text  == test["expected_response"]
     assert response.headers["Content-Type"].lower() == test["expected_content_header"].lower()
+    
+    
+def custom_validate_billing_responses(got, expected):
+    """custom_validate__responses runs custom compare of response, mainly to account for variable date times.
+       Validates all fields equal except datetime just validates the the format is correct
+
+    Args:
+        got (_type_): The raw json text from the response
+        expected (_type_): The provided expected raw json text from test data
+    """
+    got = json.loads(got)
+    expected = json.loads(expected)
+    
+    # for got,expected in zip(got_obj["events"], expected_obj["events"]):
+    assert got["user_id"] == expected["user_id"]
+    assert got["price_cents"] == expected["price_cents"]
+    #Since date times are random, best we can do is ensure they are always returned in expected date format (see date_format variable)
+    date_format = "%m/%d/%Y"
+    assert validate_date_format(got["renewal_date"], date_format)
+    assert validate_date_format(expected["renewal_date"], date_format)

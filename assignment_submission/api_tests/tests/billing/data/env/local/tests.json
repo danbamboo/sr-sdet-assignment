@@ -38,6 +38,7 @@
     {
     "test_description": "Unhappy path since user 6 does not exist /subscriptions?user_id=6",
     "uri": "/subscriptions?user_id=6",
+    "non200": true,
     "expected_status": 404,
     "expected_response": "{\"message\": \"No subscription found for user_id [6]\"}",
     "expected_content_header": "application/json"
@@ -45,6 +46,7 @@
     {
     "test_description": "Unhappy path since user_id param is not provided /subscriptions?invalid_param=6",
     "uri": "/subscriptions?invalid_param=6",
+    "non200": true,
     "expected_status": 500,
     "expected_response": "{\"title\": \"500 Internal Server Error\"}",
     "expected_content_header": "application/json"
@@ -52,6 +54,7 @@
     {
     "test_description": "Unhappy path since user_id=a param is not integer /subscriptions?invalid_param=a",
     "uri": "/subscriptions?invalid_param=a",
+    "non200": true,
     "expected_status": 500,
     "expected_response": "{\"title\": \"500 Internal Server Error\"}",
     "expected_content_header": "application/json"

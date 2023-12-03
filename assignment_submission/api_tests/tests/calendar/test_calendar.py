@@ -1,9 +1,8 @@
 import pytest
 import requests
-from lib.utils import get_JSON_file 
+from lib.utils import get_JSON_file, validate_date_format
 import os
 import json
-import datetime
 
 
 @pytest.fixture(scope="module", autouse=True)
@@ -56,7 +55,7 @@ def validate_calendar_responses(got, expected):
         assert got["duration"] == expected["duration"]
         assert got["timeZone"] == expected["timeZone"]
         #Since date times are random, best we can do is ensure they are always returned in expected date format (see date_format variable)
-        assert datetime.datetime.strptime(got["date"], date_format)
-        assert datetime.datetime.strptime(expected["date"], date_format)
+        assert validate_date_format(got["date"], date_format)
+        assert validate_date_format(expected["date"], date_format)
 
     
