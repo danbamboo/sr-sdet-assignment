@@ -23,8 +23,6 @@ The purpose of this document is to plan how we would integrate our newly created
 * Results:
   * It is good idea to keep good record of test results.  A test management system such as test rail would be beneficial to track test runs over time, make test coverage and pass/fail rates visible, help with triage, bug fixing, backlogging fixes, and making tests more robust.  
 
-## CI/CD Pipeline Plan
-
 
 
 ## Contract Testing Pipeline
@@ -36,12 +34,12 @@ The purpose of this document is to plan how we would integrate our newly created
 * Where: In automated build pipeline (i.e. Jenkins) like a unit test.  
 * Details:
   * On push to master, consumers will run contract tests and push them to a contract broker if all CI tests pass.  This can be ran as a “unit-test”, similar to other tests (triggered with rake).  
-  * Contract testing allows for tagged contracts, so consumers could push dev contracts for providers to test against (assuming they are stillin progress).  Once contract is esablished, in can be tagged as main or master and this is required for provider to pass before deployment to master.
+  * Contract testing allows for tagged contracts, so consumers could push dev contracts for providers to test against (assuming they are still in progress).  Once contract is established, in can be tagged as main or master and this is required for provider to pass before deployment to master.
   * For us, he client is dashboard-api.  Upon successful CI, it will push contract to broker.  
 * Test Data & Environment:
-  * Client driven contract tests can happen at the build stage so don’t depend on test data or enviornments.
+  * Client driven contract tests can happen at the build stage so don’t depend on test data or environments.
 * Results:
-  * Adding contract broker would share the contract to providers and be easily visable, otherwise there are not results required for client.
+  * Adding contract broker would share the contract to providers and be easily visible, otherwise there are not results required for client.
 
 ### Provider Workflow/Pipeline
 
@@ -51,7 +49,7 @@ The purpose of this document is to plan how we would integrate our newly created
   * (Preferred) Strategy 1 (Isolation and Mocks):  If provider can be ran in isolation with mock DB and mock states, provider contract tests can be ran in isolation.
     * This is the preferred method because it allows for quicker testing and doesn’t require testing on a full prod-like environment.  The only reason not to do this is if setting up mocks and stubs was too complex for a team.  
   * Strategy 2 (pre-prod environment):  Once user deploys and stages code in pre-prod provider contract tests can run when in up-and-running before pushing to production.  This could also be an on-demand, temporary env if company has this capability. 
-* If provider tests fail, the provider’s CI will not allow the provider to continue to production as that would break the consumer
+* If provider tests fail, the provider’s CI will not allow the provider to continue to production as that would break the client.
 * Tests Data & Environments:
   * Contracts should be validating the schema and not the exact data.  For that reason you shouldn’t need to manage different data for various environments.  
   * Currently, our providers don’t have any known downstream dependencies or database.  However, if they did, we could use Pact tools and states to mock out these dependencies in order to isolate these services.  

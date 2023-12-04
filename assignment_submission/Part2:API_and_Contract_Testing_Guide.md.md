@@ -3,12 +3,12 @@ This document provides details on how to run both API and Contract Tests, lists 
 
 ## Intro - TLDR- Just Run The Tests
 
-I wanted to start this section with a quick guide on how to run the tests in case you want to jump in to that immediately.   Subsequent sections will provide additional details.
+I wanted to start this section with a quick guide on how to run the tests in case you want to jump into that immediately.   Subsequent sections will provide additional details.
 
-All tests (API and Contract) can all be ran via the Makefile and make commands :) 
+All tests (API and Contract) can be run via the Makefile and make commands :) 
 
 ### Run API Tests
-Prerequisite:  All services should be running locally.  The command docker compose up --build can still be used for this.
+Prerequisite:  All services should be running locally.  The command `docker compose up --build` can still be used for this.
 
 ***Running***
 
@@ -23,9 +23,9 @@ Prerequisite:  All services should be running locally.  The command docker compo
 
 Prerequisite:  
 
-* All services should be running locally.  The command docker compose up --build can still be used for this.
+* All services should be running locally.  The command `docker compose up --build` can still be used for this.
 * Requires python3 (to run provider tests for billing service) 
-  * Also requires pip3 install pact-python if not already installed.
+  * Also requires `pip3 install pact-python` if not already installed.
 
 
 #### Client Tests and Contract Generation
