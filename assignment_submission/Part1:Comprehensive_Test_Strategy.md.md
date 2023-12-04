@@ -28,6 +28,7 @@ To begin, I'll define the high-level goals and requirements to decide what we wa
   - Sub-Goals:
     - Since Pact is currently the de-facto contract testing tool, we will support that in our testing.
     - Contract tests will cover at least one happy path and one unhappy path.
+    - Only validate the format of the API request, not exact data, since contract tests are not functional tests.
     - Contract tests run in an automation fashion but may require services running locally for providers.
     - Consumer contract tests, for dashboard-api, can run similar to unit tests.  
     - Ok to store contract files locally (see future consideration in "Contract Publishing" section) .
