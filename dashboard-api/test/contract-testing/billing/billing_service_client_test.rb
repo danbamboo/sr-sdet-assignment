@@ -22,7 +22,7 @@ class BillingServiceClientTestPact < Minitest::Test
     puts "Running `Billing subscriptions exist for user ID` Contract Test"
       @parsed_success_response = {
       user_id: 1,
-      renewal_date: Pact.like("11/03/2023"),
+      renewal_date: "11/03/2023",
       price_cents: 1500
     }
 
@@ -33,7 +33,7 @@ class BillingServiceClientTestPact < Minitest::Test
       .will_respond_with(
         status: 200,
         headers: {'Content-Type' => 'application/json'},
-        body: @parsed_success_response )
+        body: Pact.like(@parsed_success_response) )
 
     assert  BillingServiceClient.new().get_billing_subscriptions_success
   end
@@ -51,7 +51,7 @@ class BillingServiceClientTestPact < Minitest::Test
       .will_respond_with(
         status: 404,
         headers: {'Content-Type' => 'application/json'},
-        body: @parsed_failure_response )
+        body: Pact.like(@parsed_failure_response) )
 
     assert  BillingServiceClient.new().get_billing_subscriptions_fail
   end

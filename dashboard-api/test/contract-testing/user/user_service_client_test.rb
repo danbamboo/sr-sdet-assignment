@@ -30,7 +30,7 @@ class UserServiceClientTestPact < Minitest::Test
       .will_respond_with(
         status: 200,
         headers: {'Content-Type' => 'application/json; charset=utf-8'},
-        body: @parsed_success_response )
+        body: Pact.like(@parsed_success_response) )
 
     assert  UserServiceClient.new().get_user_success
   end

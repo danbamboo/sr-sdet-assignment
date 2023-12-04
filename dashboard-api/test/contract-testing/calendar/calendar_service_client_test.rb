@@ -27,7 +27,7 @@ class PactTest < Minitest::Test
       id: 1,
       name: "Hangout",
       duration: 30,
-      date: Pact.like("11/28/2023, 11:00:11 AM"),
+      date: "11/28/2023, 11:00:11 AM",
       attendees: 2,
       timeZone: "America/New_York"
     },
@@ -35,7 +35,7 @@ class PactTest < Minitest::Test
       id: 2,
       name: "Pre-Screen",
       duration: 60,
-      date: Pact.like("11/28/2023, 11:00:11 AM"),
+      date: "11/28/2023, 11:00:11 AM",
       attendees: 3,
       timeZone: "America/Chicago"
     },
@@ -43,7 +43,7 @@ class PactTest < Minitest::Test
       id: 3,
       name: "Group Interview",
       duration: 120,
-      date: Pact.like("11/28/2023, 11:00:11 AM"),
+      date: "11/28/2023, 11:00:11 AM",
       attendees: 3,
       timeZone: "America/Denver"
     },
@@ -51,7 +51,7 @@ class PactTest < Minitest::Test
       id: 4,
       name: "1on1",
       duration: 60,
-      date: Pact.like("11/28/2023, 11:00:11 AM"),
+      date: "11/28/2023, 11:00:11 AM",
       attendees: 2,
       timeZone: "America/Los_Angeles"
     }
@@ -64,7 +64,7 @@ class PactTest < Minitest::Test
       .will_respond_with(
         status: 200,
         headers: {'Content-Type' => 'application/json; charset=utf-8'},
-        body: @parsed_success_response )
+        body: Pact.like(@parsed_success_response) )
 
     assert  CalendarServiceClient.new().get_cal_event_success
   end
