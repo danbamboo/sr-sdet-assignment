@@ -1,0 +1,56 @@
+{
+  "consumer": {
+    "name": "dashboard_api"
+  },
+  "provider": {
+    "name": "user_service"
+  },
+  "interactions": [
+    {
+      "description": "A request for an user subscription",
+      "providerState": "User subscriptions do not exist for user ID",
+      "request": {
+        "method": "get",
+        "path": "/users/0"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "message": "User not found"
+        }
+      }
+    },
+    {
+      "description": "A request for an user subscription",
+      "providerState": "User subscriptions exist for user ID",
+      "request": {
+        "method": "get",
+        "path": "/users/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": 1,
+          "first_name": "Michael",
+          "last_name": "Scott"
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

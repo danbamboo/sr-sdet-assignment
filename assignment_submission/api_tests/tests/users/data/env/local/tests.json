@@ -1,0 +1,54 @@
+{
+    "tests": [
+    {
+    "test_description": "Happy path for users/1",
+    "uri": "/users/1",
+    "expected_status": 200,
+    "expected_response": "{\"id\":1,\"first_name\":\"Michael\",\"last_name\":\"Scott\"}",
+    "expected_content_header": "application/json; charset=utf-8"
+    },{
+    "test_description": "Happy path for users/2",
+    "uri": "/users/2",
+    "expected_status": 200,
+    "expected_response": "{\"id\":2,\"first_name\":\"Jim\",\"last_name\":\"Halpert\"}",
+    "expected_content_header": "application/json; charset=utf-8"
+    },{
+    "test_description": "Happy path for users/3",
+    "uri": "/users/3",
+    "expected_status": 200,
+    "expected_response": "{\"id\":3,\"first_name\":\"Pam\",\"last_name\":\"Beesly\"}",
+    "expected_content_header": "application/json; charset=utf-8"
+    },{
+    "test_description": "Happy path for users/4",
+    "uri": "/users/4",
+    "expected_status": 200,
+    "expected_response": "{\"id\":4,\"first_name\":\"Dwight\",\"last_name\":\"Schrute\"}",
+    "expected_content_header": "application/json; charset=utf-8"
+    },{
+    "test_description": "Happy path for users/5",
+    "uri": "/users/5",
+    "expected_status": 200,
+    "expected_response": "{\"id\":5,\"first_name\":\"Anglea\",\"last_name\":\"Martin\"}",
+    "expected_content_header": "application/json; charset=utf-8"
+    },{
+    "test_description": "Unhappy path for non users/0",
+    "uri": "/users/0",
+    "expected_status": 404,
+    "expected_response": "{\"message\":\"User not found\"}",
+    "expected_content_header": "application/json; charset=utf-8"
+    },{
+    "test_description": "Unhappy path for alpha users/abc",
+    "uri": "/users/abc",
+    "expected_status": 404,
+    "expected_response": "{\"message\":\"User not found\"}",
+    "expected_content_header": "application/json; charset=utf-8"
+    },{
+    "test_description": "Invalid path for non users/invalidPath/1",
+    "uri": "/users/invalidPath/1",
+    "skip_response_validation": true,
+    "expected_status": 404,
+    "expected_response": "{\"message\":\"User not found\"}",
+    "expected_content_header": "application/json; charset=utf-8"
+    }
+    ]
+}
