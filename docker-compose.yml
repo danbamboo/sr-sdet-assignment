@@ -59,17 +59,6 @@ services:
       - billing_service
       - user_service
       - calendar_service
-  # api-tests:
-  #   build:
-  #     context: ./assignment_submission/api_tests
-  #     dockerfile: Dockerfile
-  #   network_mode: "host"  
-  #   volumes:
-  #     - ./assignment_submission/api_tests:/app
-  #   depends_on:
-  #     - billing_service
-  #     - user_service
-  #     - calendar_service
 
 networks:
   soa_network:

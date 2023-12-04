@@ -48,7 +48,6 @@ def custom_validate_billing_responses(got, expected):
     got = json.loads(got)
     expected = json.loads(expected)
     
-    # for got,expected in zip(got_obj["events"], expected_obj["events"]):
     assert got["user_id"] == expected["user_id"]
     assert got["price_cents"] == expected["price_cents"]
     #Since date times are random, best we can do is ensure they are always returned in expected date format (see date_format variable)

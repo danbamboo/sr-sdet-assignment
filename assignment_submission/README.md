@@ -8,7 +8,7 @@ Hello!  My name is Danny McMurrough and I'm currently a Sr. SDET working a Qualt
 My comprehensive testing strategy can be reviewed here [Part 1: Develop a Comprehensive Testing Strategy](Part1:Comprehensive_Test_Strategy.md)
 
 # Part 2: Automate API and Contract Tests
-For API and Contract testing details and guide for running see the [Part 2: Automate API and Contract Testse](Part2:API_and_Contract_Testing_Guide.md) 
+For API and Contract testing details and guide for running see the [Part 2: Automate API and Contract Testing](Part2:API_and_Contract_Testing_Guide.md) 
 
 # Part 3: CI/CD Pipeline Integration
 Here I discuss CICD integrations plans for API and Contract testing [Part 3: CI/CD Pipeline Integration](Part3:CICD_Pipeline_Integration.md) 
